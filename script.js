@@ -36,6 +36,16 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
 });
 
+// Auto-open enquiry popup 5s after load, once per session
+if (modalOverlay && !sessionStorage.getItem('enquiryPopupShown')) {
+  setTimeout(() => {
+    if (!modalOverlay.classList.contains('open')) {
+      openModal();
+      sessionStorage.setItem('enquiryPopupShown', 'true');
+    }
+  }, 5000);
+}
+
 // Scroll reveal via IntersectionObserver
 const revealEls = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
