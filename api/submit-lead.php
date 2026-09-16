@@ -19,15 +19,15 @@ $city = field('City');
 $apartmentType = field('ApartmentType');
 $source = field('source') ?: 'hero_form';
 $honeypot = field('website');
-$redirect = field('_next');
+
+// Fixed, site-relative redirect target (not taken from client input, to
+// avoid an open-redirect). This script always lives at /api/submit-lead.php,
+// one level below the site root where thank-you.html lives.
+$thankYouUrl = '../thank-you.html';
 
 if ($honeypot !== '') {
     // Bot filled the hidden field; pretend success without saving.
-    if ($redirect) {
-        header('Location: ' . $redirect);
-        exit;
-    }
-    echo json_encode(['ok' => true]);
+    header('Location: ' . $thankYouUrl);
     exit;
 }
 
@@ -55,9 +55,5 @@ try {
     exit;
 }
 
-if ($redirect) {
-    header('Location: ' . $redirect);
-    exit;
-}
-
-echo json_encode(['ok' => true]);
+header('Location: ' . $thankYouUrl);
+exit;

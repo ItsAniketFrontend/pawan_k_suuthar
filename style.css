@@ -1,3 +1,5 @@
+.text-orange{color:#e8590c;}
+
 .hp-field{
   position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden;
 }
@@ -108,6 +110,7 @@ ul{list-style:none;}
   margin-bottom:22px;letter-spacing:0.01em;opacity:0.9;
 }
 .hero-eyebrow i{color:var(--orange);}
+.hero-eyebrow strong{color:var(--orange);}
 .hero h1{
   font-size:clamp(2.2rem,4.2vw,3.2rem);
   color:var(--white);
