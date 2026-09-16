@@ -1,0 +1,4 @@
+# Extra layer of protection; PHP session auth is the primary guard.
+<FilesMatch "\.(sql)$">
+  Require all denied
+</FilesMatch>

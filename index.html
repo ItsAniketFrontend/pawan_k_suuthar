@@ -19,7 +19,7 @@
   <div class="nav-inner">
     <a href="#top" class="brand">
       <img src="assets/img/logo.jpeg" alt="Pawan K. Suuthar" class="brand-logo">
-      <span class="brand-text">PAWAN K. <strong>SUUTHAR</strong></span>
+      <span class="brand-text">PAWAN <strong>K.</strong> <strong>SUUTHAR</strong></span>
     </a>
     <nav class="nav-links">
       <a href="#top">Home</a>
@@ -48,11 +48,10 @@
       </div>
     </div>
 
-    <form class="hero-form" id="leadForm" action="https://formsubmit.co/pawanksuuthar@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New Apartment Interior Enquiry">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
+    <form class="hero-form" id="leadForm" action="api/submit-lead.php" method="POST">
       <input type="hidden" name="_next" value="thank-you.html">
+      <input type="hidden" name="source" value="hero_form">
+      <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off">
 
       <h3>Request a Callback</h3>
       <div class="form-group">
@@ -65,7 +64,7 @@
         <input type="text" id="city" name="City" placeholder="City*" required>
       </div>
       <div class="form-group">
-        <select id="bhk" name="Apartment Type" required>
+        <select id="bhk" name="ApartmentType" required>
           <option value="" disabled selected>Apartment Type*</option>
           <option>2BHK</option>
           <option>3BHK</option>
@@ -273,11 +272,10 @@
     </button>
     <h3 id="modalTitle">Request a Callback</h3>
     <p class="modal-sub">Fill in your details, Pawan will personally get in touch.</p>
-    <form class="modal-form" action="https://formsubmit.co/pawanksuuthar@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New Apartment Interior Enquiry">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
+    <form class="modal-form" action="api/submit-lead.php" method="POST">
       <input type="hidden" name="_next" value="thank-you.html">
+      <input type="hidden" name="source" value="popup_modal">
+      <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off">
 
       <div class="form-group">
         <input type="text" name="Name" placeholder="Name*" required>
@@ -289,7 +287,7 @@
         <input type="text" name="City" placeholder="City*" required>
       </div>
       <div class="form-group">
-        <select name="Apartment Type" required>
+        <select name="ApartmentType" required>
           <option value="" disabled selected>Apartment Type*</option>
           <option>2BHK</option>
           <option>3BHK</option>
