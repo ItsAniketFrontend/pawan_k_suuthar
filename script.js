@@ -46,6 +46,13 @@ if (modalOverlay && !sessionStorage.getItem('enquiryPopupShown')) {
   }, 5000);
 }
 
+// Restrict phone fields to digits only, max 10
+document.querySelectorAll('input[type="tel"]').forEach(input => {
+  input.addEventListener('input', () => {
+    input.value = input.value.replace(/\D/g, '').slice(0, 10);
+  });
+});
+
 // Scroll reveal via IntersectionObserver
 const revealEls = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
