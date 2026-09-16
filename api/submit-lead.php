@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/mailer.php';
 
 header('Content-Type: application/json');
 
@@ -54,6 +55,16 @@ try {
     echo json_encode(['ok' => false, 'error' => 'Could not save enquiry']);
     exit;
 }
+
+// Email notification is best-effort: a failed send must not stop the
+// user from reaching the thank-you page, since the lead is already saved.
+send_lead_notification([
+    'name' => $name,
+    'phone' => $phone,
+    'city' => $city,
+    'apartment_type' => $apartmentType,
+    'source' => $source,
+]);
 
 header('Location: ' . $thankYouUrl);
 exit;
